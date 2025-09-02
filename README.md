@@ -45,6 +45,15 @@ Another revision was created by applying the `hello.yaml` file. It gets a name o
 
 Now the below block was added to `hello.yaml` to split the incoming traffic 50% to the latest revision and and the remaining 50% to `hello-00001`
 
+```yaml
+traffic:
+  - latestRevision: true
+    percent: 50
+  - latestRevision: false
+    percent: 50
+    revisionName: hello-00001
+```
+
 Now half the requests return "Hello World!" and the other half returns "Hello Knative!"
 
 ![traffic split](./images/traffic-split.png)
